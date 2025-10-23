@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🎨 CSS2TFT - From CSS to OLED Screens
 
-Currently, two official plugins are available:
+Convierte tus estilos `TailwindCSS` en visualizaciones pixel-perfect para pantallas OLED/TFT 📟 usando React + Vite + Arduino.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![CSS2TFT Banner](https://raw.githubusercontent.com/hannahNchan/css2tft/main/banner.png)
 
-## React Compiler
+--
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- ⚛️ React 18 + TypeScript
+- ⚡ Vite (ultra rápido)
+- 🎨 TailwindCSS (estilos utilitarios)
+- 💾 Exportador para renderizado en pantallas Arduino (SSD1351, ST7789, etc.)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+--
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📂 Estructura del Proyecto
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+📦css2tft
+┣ 📂public
+┣ 📂src
+┃ ┣ 📂assets         # Imágenes, fuentes, íconos
+┃ ┣ 📂components     # Componentes visuales reutilizables
+┃ ┣ 📂hooks          # Custom hooks
+┃ ┣ 📂lib            # Lógica de conversión y utilidades
+┃ ┣ 📂pages          # Vistas principales
+┃ ┣ 📂styles         # Tailwind setup
+┃ ┃ ┗ 📜 index.css   # @tailwind base, components, utilities
+┃ ┣ 📜 App.tsx       # Entry point visual
+┃ ┗ 📜 main.tsx      # ReactDOM render + mounting
+┣ 📜 vite.config.ts  # Configuración de Vite
+┗ 📜 README.md       # Este archivo
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+--
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Instalación
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Requisitos previos: `Node.js`, `npm` y que ames el diseño bonito.
+
+```bash
+git clone https://github.com/hannahNchan/css2tft.git
+cd css2tft
+npm install
+npm run dev
 ```
+
+Abre en: [http://localhost:5173](http://localhost:5173)
+
+--
+
+## 💡 ¿Qué hace esto?
+
+Toma estilos visuales escritos en Tailwind o CSS y los interpreta en instrucciones visuales que pueden ser convertidas a:
+
+- Instrucciones tipo `drawText()` y `drawRect()` para Arduino (pantallas SPI/I2C)
+- Vistas previas tipo canvas
+- Exportación `.json` para microcontroladores
+
+🧠 Ideal para:
+
+- Interfaces gráficas en Arduino
+- Prototipos de pantallas TFT/OLED
+- Diseño UI para hardware embebido
+
+--
+
+## 🧩 Cómo contribuir
+
+1. Haz un fork 🍴
+2. Crea una rama nueva `git checkout -b feat/nueva-cosa`
+3. Haz commit `git commit -m "feat: agregó vista pixel preview"`
+4. Push `git push origin feat/nueva-cosa`
+5. Abre un Pull Request 🧃
+
+--
+
+## 📸 Capturas de pantalla
+
+_Pendientes en el próximo push..._
+
+--
+
+## 📜 Licencia
+
+MIT — libre pa' usar, remixear y soñar.
+
+Made with 💖 by [@hannahNchan](https://github.com/hannahNchan)
